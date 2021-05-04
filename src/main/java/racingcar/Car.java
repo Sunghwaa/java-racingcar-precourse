@@ -2,7 +2,7 @@ package racingcar;
 
 public class Car {
 	private final CarName name;
-	private CarPosition position;
+	private final CarPosition position;
 
 	public Car(String name) {
 		this.name = new CarName(name);
