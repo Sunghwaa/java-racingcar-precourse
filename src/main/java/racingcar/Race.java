@@ -20,7 +20,7 @@ public class Race {
 			System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분 / 5글자 이하 / 2대 이상 입력)");
 		} while (!scanCarNames());
 		do {
-			System.out.println("시도할 횟수는 몇 회인가요? (숫자로 입력)");
+			System.out.println("시도할 횟수는 몇 회인가요? (숫자로 입력 / 1이상 입력.)");
 		} while (!scanMoveCount());
 	}
 
