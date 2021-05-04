@@ -8,6 +8,14 @@ public class Race {
 	private Cars cars;
 	private int moveCount;
 
+	private void startRace() {
+		System.out.println("실행 결과");
+		for (int i = 0; i < moveCount; i++) {
+			cars.moveAllCars();
+			printCurrentStatus();
+		}
+	}
+
 	private void printCurrentStatus() {
 		StringBuilder builder = new StringBuilder();
 		for (Car car : cars.getCars()) {
