@@ -1,23 +1,30 @@
 package racingcar;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Race {
-	private final ArrayList<Car> cars = new ArrayList<Car>();
+	private static final Scanner scanner = new Scanner(System.in);
 
-	public Race(String[] carNames) {
-		for (String carName : carNames) {
-			cars.add(new Car(carName));
+	private Cars cars;
+	private int moveCount;
+
+	private boolean scanCarNames() {
+		String[] carNames = scanner.next().split(",");
+		try {
+			cars = new Cars(carNames);
+			return true;
+		} catch (IllegalArgumentException e) {
+			return false;
 		}
 	}
 
-	public void moveAllCars() {
-		for (Car car : cars) {
-			car.move();
+	private boolean scanMoveCount() {
+		String input = scanner.next();
+		try {
+			moveCount = Integer.parseInt(input);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
 		}
-	}
-
-	public ArrayList<Car> getCars() {
-		return cars;
 	}
 }
