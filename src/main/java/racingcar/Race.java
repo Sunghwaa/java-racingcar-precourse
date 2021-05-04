@@ -34,7 +34,7 @@ public class Race {
 	}
 
 	private static void printWinners() {
-		System.out.printf("%s가 최종 우승했습니다.%n", getWinnersString());
+		System.out.printf("%s(이)가 최종 우승했습니다.%n", getWinnersString());
 	}
 
 	private static String getWinnersString() {
