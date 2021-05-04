@@ -17,15 +17,15 @@ public class Race {
 
 	private static void prepareRace() {
 		do {
-			System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분 / 2대 이상 입력)");
-		} while (scanCarNames());
+			System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분 / 5글자 이하 / 2대 이상 입력)");
+		} while (!scanCarNames());
 		do {
 			System.out.println("시도할 횟수는 몇 회인가요? (숫자로 입력)");
-		} while (scanMoveCount());
+		} while (!scanMoveCount());
 	}
 
 	private static void startRace() {
-		System.out.println("실행 결과");
+		System.out.printf("%n실행 결과%n");
 		for (int i = 0; i < moveCount; i++) {
 			cars.moveAllCars();
 			printCurrentStatus();
@@ -69,6 +69,7 @@ public class Race {
 		for (Car car : cars.getCars()) {
 			builder.append(String.format("%s : %s%n", car.getName(), getPositionString(car)));
 		}
+		builder.append(String.format("%n"));
 		System.out.print(builder);
 	}
 
