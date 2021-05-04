@@ -97,9 +97,9 @@ public class Race {
 		String input = scanner.next();
 		try {
 			moveCount = Integer.parseInt(input);
-			return true;
 		} catch (NumberFormatException e) {
 			return false;
 		}
+		return moveCount > 0;
 	}
 }
