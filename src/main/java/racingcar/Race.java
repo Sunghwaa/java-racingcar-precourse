@@ -10,4 +10,14 @@ public class Race {
 			cars.add(new Car(carName));
 		}
 	}
+
+	public void moveAllCars() {
+		for (Car car : cars) {
+			car.move();
+		}
+	}
+
+	public ArrayList<Car> getCars() {
+		return cars;
+	}
 }
