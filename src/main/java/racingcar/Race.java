@@ -1,10 +1,12 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Race {
 	private static final Scanner scanner = new Scanner(System.in);
 
+	private ArrayList<String> winners;
 	private Cars cars;
 	private int moveCount;
 
@@ -14,6 +16,38 @@ public class Race {
 			cars.moveAllCars();
 			printCurrentStatus();
 		}
+		printWinners();
+	}
+
+	private void printWinners() {
+		System.out.printf("%s가 최종 우승했습니다.%n", getWinnersString());
+	}
+
+	private String getWinnersString() {
+		int winnersPosition = getWinnersPosition();
+		calculateWinners(winnersPosition);
+		return String.join(", ", winners);
+	}
+
+	private void calculateWinners(int winnersPosition) {
+		winners = new ArrayList<String>();
+		for (Car car : cars.getCars()) {
+			addIfWinner(car, winnersPosition);
+		}
+	}
+
+	private void addIfWinner(Car car, int winnersPosition) {
+		if (car.getPosition() == winnersPosition) {
+			winners.add(car.getName());
+		}
+	}
+
+	private int getWinnersPosition() {
+		int maxPosition = 0;
+		for (Car car : cars.getCars()) {
+			maxPosition = Math.max(car.getPosition(), maxPosition);
+		}
+		return maxPosition;
 	}
 
 	private void printCurrentStatus() {
