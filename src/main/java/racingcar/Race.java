@@ -8,6 +8,21 @@ public class Race {
 	private Cars cars;
 	private int moveCount;
 
+	private void printCurrentStatus() {
+		StringBuilder builder = new StringBuilder();
+		for (Car car : cars.getCars()) {
+			builder.append(String.format("%s : %s%n", car.getName(), getPositionString(car)));
+		}
+		System.out.print(builder);
+	}
+
+	private String getPositionString(Car car) {
+		if (car.getPosition() == 0) {
+			return "";
+		}
+		return new String(new char[car.getPosition()]).replace("\0", "-");
+	}
+
 	private boolean scanCarNames() {
 		String[] carNames = scanner.next().split(",");
 		try {
